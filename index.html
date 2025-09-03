@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JerinJoseph</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Banner -->
+  <nav class="banner">
+    <img src="./images/nav.jpeg" alt="Banner Image">
+  </nav>
+
+  <div class="main-body">
+    <!-- Left Column (Profile + Pages + Updates) -->
+    <div class="left-column">
+
+      <!-- Profile -->
+      <div class="profile-card">
+        <img src="./images/jerin1.jpg" alt="Profile Image" class="profile-img">
+        <h2>Jerin Joseph</h2>
+        <p><strong>Age:</strong> 22</p>
+        <p><strong>Status:</strong> Online</p>
+      </div>
+
+      <!-- Pages -->
+      <div class="pages-box">
+        <h2>PAGES</h2>
+        <ul>
+          <li><a href="./Pages/Home.html" target="content-frame">Home</a></li>
+          <li><a href="./Pages/about.html" target="content-frame">Who Am I</a></li>
+          <li><a href="./Pages/update.html" target="content-frame">Updates</a></li>
+        </ul>
+      </div>
+
+      <!-- Updates -->
+      <div class="updates-box">
+        <h2>UPDATES</h2>
+        <iframe src="./Pages/update.html"></iframe>
+      </div>
+    </div>
+
+    <!-- Content Box (Loads pages here) -->
+    <div class="content">
+      <iframe name="content-frame" src="./Pages/Home.html"></iframe>
+    </div>
+  </div>
+
+</body>
+</html>
