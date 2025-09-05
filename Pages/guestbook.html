@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Guestbook - JerinJoseph</title>
   <style>
+    /* Base Styles */
     body {
       font-family: Arial, sans-serif;
       background: #1e1e1e;
@@ -11,6 +12,7 @@
       display: flex;
       justify-content: center;
       padding: 20px;
+      margin: 0;
     }
 
     .guestbook-container {
@@ -19,19 +21,23 @@
       border-radius: 10px;
       width: 100%;
       max-width: 600px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      box-sizing: border-box;
     }
 
     h1, h2 {
       text-align: center;
+      margin: 10px 0;
     }
 
     .subtitle {
       text-align: center;
       color: #bbb;
       margin-bottom: 20px;
+      font-size: 0.95rem;
     }
 
+    /* Form Styles */
     form {
       display: flex;
       flex-direction: column;
@@ -39,15 +45,20 @@
     }
 
     input, textarea {
-      padding: 10px;
-      margin-bottom: 10px;
+      padding: 12px;
+      margin-bottom: 12px;
       border-radius: 5px;
       border: none;
       font-size: 1rem;
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 80px;
     }
 
     button {
-      padding: 10px;
+      padding: 12px;
       border: none;
       border-radius: 5px;
       background: #4CAF50;
@@ -61,6 +72,7 @@
       background: #45a049;
     }
 
+    /* Messages */
     #messages {
       max-height: 400px;
       overflow-y: auto;
@@ -68,9 +80,10 @@
 
     .message {
       background: #3b3b3b;
-      padding: 10px;
+      padding: 12px;
       border-radius: 5px;
       margin-bottom: 10px;
+      word-wrap: break-word;
     }
 
     .message p {
@@ -87,9 +100,41 @@
       border-top: 1px solid #555;
     }
 
+    /* Responsive Styles */
     @media (max-width: 600px) {
       .guestbook-container {
         padding: 20px;
+      }
+
+      input, textarea, button {
+        font-size: 0.95rem;
+        padding: 10px;
+      }
+
+      .subtitle {
+        font-size: 0.9rem;
+      }
+
+      #messages {
+        max-height: 300px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .guestbook-container {
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      h2 {
+        font-size: 1.1rem;
+      }
+
+      input, textarea, button {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -104,7 +149,7 @@
       <input type="hidden" name="form-name" value="guestbook">
       <input type="text" name="name" placeholder="👤 Your Name" required>
       <textarea name="message" placeholder="💬 Your Message" required></textarea>
-      <button type="submit">Sign Guestbook</button>
+      <button type="submit">SENT</button>
     </form>
 
     <h2>💬 Guestbook Messages</h2>
