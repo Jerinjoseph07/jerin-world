@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Site Map - JerinJoseph</title>
+  <style>
+    body {
+      background: black;
+      color: #00ffcc;
+      font-family: "Courier New", monospace;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+      text-shadow: 0 0 8px #ff9900;
+      margin-bottom: 20px;
+    }
+
+    .sitemap {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #111;
+      border: 2px solid #00ffff;
+      box-shadow: 0 0 15px #00ffff;
+      padding: 20px;
+      border-radius: 6px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 8px 0;
+      position: relative;
+    }
+
+    li::before {
+      content: "▶";
+      color: #ffcc00;
+      margin-right: 8px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #00ffcc;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: #ffcc00;
+      text-shadow: 0 0 5px #ffcc00;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 15px;
+      border: 2px solid #ffcc00;
+      color: #ffcc00;
+      background: black;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #ffcc00;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1>🗺️ Site Map</h1>
+  <div class="sitemap">
+    <ul>
+      <li><a href="../Pages/Home.html" target="content-frame">Home</a></li>
+      <li><a href="../Pages/about.html" target="content-frame">Who Am I</a></li>
+      <li><a href="../Pages/update.html" target="content-frame">Updates</a></li>
+      <li><a href="../Pages/Gallery.html">Gallery </a></li>
+      <li><a href="../Pages/Games.html">my game listGames </a></li>
+      <li><a href="../Pages/SiteMap.html" target="content-frame">Site Map</a></li>
+    </ul>
+  </div>
+
+  <div style="text-align: center;">
+    <a href="../index.html" class="back-btn">⬅ Back to Main Page</a>
+  </div>
+</body>
+</html>

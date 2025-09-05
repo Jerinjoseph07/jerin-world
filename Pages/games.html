@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Games - JerinJoseph</title>
+  <style>
+    body {
+      background: black;
+      color: #00ffcc;
+      font-family: "Courier New", monospace;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+      text-shadow: 0 0 8px #ff9900;
+      margin-bottom: 20px;
+    }
+
+    .games-list {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #111;
+      border: 2px solid #00ffff;
+      box-shadow: 0 0 15px #00ffff;
+      padding: 20px;
+      border-radius: 6px;
+    }
+
+    .games-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .games-list li {
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ffcc00;
+      border-radius: 4px;
+      background: black;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .games-list li:hover {
+      background: #ffcc00;
+      color: black;
+    }
+
+    .game-details {
+      margin-top: 15px;
+      padding: 15px;
+      border: 1px solid #00ffcc;
+      border-radius: 4px;
+      background: #000;
+      display: none;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 15px;
+      border: 2px solid #ffcc00;
+      color: #ffcc00;
+      background: black;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #ffcc00;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎮 My Game List</h1>
+  <div class="games-list">
+    <ul>
+      <li onclick="showDetails('minecraft')">Minecraft ⛏️</li>
+      <li onclick="showDetails('nfs')">Need for Speed 🏎️</li>
+      <li onclick="showDetails('gta')">GTA 4 🚗</li>
+      <li onclick="showDetails('ac')">Assassin’s Creed ⚔️</li>
+      <li onclick="showDetails('cod')">Call of Duty 🔫</li>
+      <li onclick="showDetails('pubg')">PUBG Mobile 📱</li>
+      <li onclick="showDetails('coc')">Clash of Clans 🏰</li>
+    </ul>
+
+    <div class="game-details" id="game-details">
+      <h3 id="game-title"></h3>
+      <p id="game-info"></p>
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    <a href="../index.html" class="back-btn">⬅ Back to Main Page</a>
+  </div>
+
+  <script>
+    const games = {
+      minecraft: {
+        title: "Minecraft ⛏️",
+        info: "Platform: PC & Mobile<br>Year: 2019<br>Status: Casual Building & Survival"
+      },
+      nfs: {
+        title: "Need for Speed 🏎️",
+        info: "Platform: PC<br>Year: 2015<br>Status: Racing Fan!"
+      },
+      gta: {
+        title: "GTA 4 🚗",
+        info: "Platform: PC<br>Year: 2022<br>Status: Free roam, missions & fun"
+      },
+      ac: {
+        title: "Assassin’s Creed ⚔️",
+        info: "Platform: PC<br>Year: 2022+<br>Status: Story mode explorer"
+      },
+      cod: {
+        title: "Call of Duty 🔫",
+        info: "Platform: Mobile<br>Year: 2021+<br>Status: FPS Multiplayer Action"
+      },
+      pubg: {
+        title: "PUBG Mobile 📱",
+        info: "Platform: Mobile<br>Year: 2021`<br>Status: Battle Royale"
+      },
+      coc: {
+        title: "Clash of Clans 🏰",
+        info: "Platform: Mobile<br>Year: 2021<br>Status: Strategy Village Builder"
+      }
+    };
+
+    function showDetails(gameKey) {
+      const game = games[gameKey];
+      document.getElementById("game-title").innerHTML = game.title;
+      document.getElementById("game-info").innerHTML = game.info;
+      document.getElementById("game-details").style.display = "block";
+    }
+  </script>
+</body>
+</html>
