@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="../index.css">
+  <style>
+    body {
+       background: url("https://www.transparenttextures.com/patterns/stardust.png") repeat black;
+      color: cyan;
+      font-family: "Press Start 2P", monospace;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Back Button (fixed top) */
+    .back-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      padding: 10px 15px;
+      border: 2px solid lime;
+      border-radius: 6px;
+      background: black;
+      color: lime;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      text-shadow: 0 0 5px lime;
+      z-index: 1000;
+    }
+
+    .back-btn:hover {
+      background: lime;
+      color: black;
+      text-shadow: none;
+    }
+
+    h2 {
+      text-align: center;
+      padding-top: 60px; /* space below fixed button */
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border: 2px solid cyan;
+      border-radius: 8px;
+      box-shadow: 0 0 10px cyan;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <!-- Back Button -->
+  <a href="../index.html" class="back-btn">⬅ Back</a>
+
+  <h2>📸 My Gallery</h2>
+  <div class="gallery">
+    <img src="../images/gallery/jerin1.jpg" alt="Image 1">
+    <img src="../images/gallery/jerin2.jpg" alt="Image 2">
+    <img src="../images/gallery/jerin3.jpg" alt="Image 3">
+    <img src="../images/gallery/jerin4.jpg" alt="Image 4">
+    <img src="../images/gallery/jerin5.jpg" alt="Image 4">
+    <img src="../images/gallery/jerin6.jpg" alt="Image 4">
+    <img src="../images/gallery/jerin7.jpg" alt="Image 4">
+    <img src="../images/gallery/jerin9.jpg" alt="Image 4">
+  </div>
+</body>
+</html>

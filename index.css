@@ -84,17 +84,17 @@ body {
   text-transform: uppercase;
 }
 
-.pages-box ul {
+.profile-card ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.pages-box ul li {
+.profile-card {
   margin: 5px 0;
 }
 
-.pages-box ul li a {
+.profile-card a {
   display: block;
   text-decoration: none;
   color: #ffcc00;
@@ -105,9 +105,13 @@ body {
   transition: 0.3s;
 }
 
-.pages-box ul li a:hover {
+.profile-card ul li a:hover {
   background: #ffcc00;
   color: black;
+}
+
+.pages-box a{
+  color: #ff9900;
 }
 
 /* Updates Box */
