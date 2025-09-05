@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guestbook - JerinJoseph</title>
   <link rel="stylesheet" href="../pages-css/guestbook.css">
 </head>
@@ -15,14 +16,14 @@
       <input type="hidden" name="form-name" value="guestbook">
       <input type="text" name="name" placeholder="👤 Your Name" required>
       <textarea name="message" placeholder="💬 Your Message" required></textarea>
-      <button type="submit">SENT</button>
+      <button type="submit">SEND</button>
     </form>
 
-    <!-- <h2>💬 Guestbook Messages</h2>
+    <h2>💬 Guestbook Messages</h2>
     <div id="messages"><p>Loading messages...</p></div>
-  </div> -->
+  </div>
 
-  <!-- <script>
+  <script>
     const container = document.getElementById("messages");
 
     async function loadMessages() {
@@ -38,7 +39,6 @@
           return;
         }
 
-        // Latest messages on top
         messages.reverse().forEach(msg => {
           const date = new Date(msg.created_at);
           const formattedDate = date.toLocaleString();
@@ -59,9 +59,8 @@
       }
     }
 
-    // Load messages once
     loadMessages();
-  </script> -->
+  </script>
 
 </body>
 </html>
