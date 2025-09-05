@@ -5,7 +5,7 @@ exports.handler = async (event, context) => {
   const SITE_ID = process.env.SITE_ID;
   const TOKEN = process.env.NETLIFY_API_TOKEN;
 
-  const response = await fetch(`https://api.netlify.com/api/v1/sites/${SITE_ID}/forms`, {
+  const response = await fetch(`https://api.netlify.com/api/v1/sites/${6935214c-366f-448f-b3ba-4462b41f4974}/forms`, {
     headers: {
       Authorization: `Bearer ${TOKEN}`
     }
