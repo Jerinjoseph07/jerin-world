@@ -21,6 +21,112 @@ body {
   height: 100%;
   object-fit: cover;
 }
+/* Onam Greeting */
+.onam-message {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #14130e;
+  background-image: url(./images/onambanner.jpg.jpeg);
+  border: 2px solid #ff9900;
+  padding: 10px;
+  margin: 10px 20px;
+  border-radius: 6px;
+  font-family: "Courier New", monospace;
+  animation: slideIn 1.5s ease-out, glow 2s infinite alternate;
+
+}
+
+.flower {
+  position: absolute;
+  font-size: 20px;
+  opacity: 0.8;
+  animation: floatFlowers 6s infinite ease-in-out;
+}
+
+/* Random Positions */
+.flower:nth-child(2) { left: 10%; animation-delay: 0s; }
+.flower:nth-child(3) { left: 80%; animation-delay: 2s; }
+.flower:nth-child(4) { left: 50%; animation-delay: 4s; }
+
+/* Animation for floating flowers */
+@keyframes floatFlowers {
+  0%   { top: 100%; transform: rotate(0deg) scale(1); opacity: 0.8; }
+  50%  { transform: rotate(180deg) scale(1.2); opacity: 1; }
+  100% { top: -50px; transform: rotate(360deg) scale(1); opacity: 0; }
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* Glowing Effect */
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #ff9900, 0 0 10px #ffcc00;
+    color: #ffcc00;
+  }
+  to {
+    box-shadow: 0 0 20px #ffcc00, 0 0 30px #ff9900, 0 0 40px #ffcc00;
+    color: #fff799;
+  }
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Glowing Effect */
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #ff9900, 0 0 10px #ffcc00;
+    color: #4dbb0d;
+  }
+  to {
+    box-shadow: 0 0 20px #ffcc00, 0 0 30px #ff9900, 0 0 40px #ffcc00;
+    color: #a10c8d;
+  }
+}
+/* Bottom Stickers */
+.onam-stickers {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 1000;
+}
+
+.onam-stickers span {
+  font-size: 32px;
+  animation: bounce 3s infinite ease-in-out;
+}
+
+/* Delay each sticker slightly for effect */
+.onam-stickers span:nth-child(1) { animation-delay: 0s; }
+.onam-stickers span:nth-child(2) { animation-delay: 0.5s; }
+.onam-stickers span:nth-child(3) { animation-delay: 1s; }
+.onam-stickers span:nth-child(4) { animation-delay: 1.5s; }
+.onam-stickers span:nth-child(5) { animation-delay: 2s; }
+
+/* Bouncing animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px) rotate(10deg); }
+}
+
+
 
 /* Layout */
 .main-body {
