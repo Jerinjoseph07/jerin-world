@@ -2,10 +2,10 @@ exports.handler = async (event, context) => {
   const fetch = require("node-fetch");
 
   // Your Netlify site ID + API token (add in Netlify dashboard → Site Settings → Build & Deploy → Environment)
-  const SITE_ID = process.env.SITE_ID;
+  const SITE_ID = process.env.MY_SITE_ID;
   const TOKEN = process.env.NETLIFY_API_TOKEN;
 
-  const response = await fetch(`https://api.netlify.com/api/v1/sites/${6935214c-366f-448f-b3ba-4462b41f4974}/forms`, {
+  const response = await fetch(`https://api.netlify.com/api/v1/sites/${SITE_ID}/forms`, {
     headers: {
       Authorization: `Bearer ${TOKEN}`
     }
