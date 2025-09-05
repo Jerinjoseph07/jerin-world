@@ -1,0 +1,79 @@
+body {
+  background: url("https://www.transparenttextures.com/patterns/stardust.png") repeat black;
+  color: #00ffcc;
+  font-family: "Courier New", monospace;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.guestbook-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: black;
+  border: 2px solid #ff9900;
+  border-radius: 6px;
+  box-shadow: 0 0 15px #ff9900;
+}
+
+h1 {
+  color: #ffcc00;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #cccccc;
+  margin-bottom: 20px;
+}
+
+.guestbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.guestbook-form input,
+.guestbook-form textarea {
+  background: #111;
+  border: 2px solid #00ffcc;
+  color: #00ffcc;
+  padding: 10px;
+  font-family: inherit;
+  border-radius: 4px;
+}
+
+.guestbook-form input:focus,
+.guestbook-form textarea:focus {
+  outline: none;
+  border-color: #ffcc00;
+  box-shadow: 0 0 8px #ffcc00;
+}
+
+.guestbook-form textarea {
+  resize: none;
+  height: 120px;
+}
+
+.guestbook-form button {
+  background: #ff9900;
+  color: black;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.guestbook-form button:hover {
+  background: #ffcc00;
+  color: black;
+}
+
+.thanks-message {
+  margin-top: 15px;
+  color: #00ff99;
+  font-weight: bold;
+}
