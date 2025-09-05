@@ -35,6 +35,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  flex-shrink: 0;
 }
 
 /* Profile Card */
@@ -84,14 +85,11 @@ body {
   text-transform: uppercase;
 }
 
-.profile-card ul {
+.profile-card ul,
+.pages-box ul {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-.profile-card {
-  margin: 5px 0;
 }
 
 .profile-card a {
@@ -101,6 +99,7 @@ body {
   background: #111;
   border: 1px solid #ffcc00;
   padding: 5px;
+  margin: 3px 0;
   text-align: center;
   transition: 0.3s;
 }
@@ -110,8 +109,9 @@ body {
   color: black;
 }
 
-.pages-box a{
+.pages-box a {
   color: #ff9900;
+  text-decoration: none;
 }
 
 /* Updates Box */
@@ -160,9 +160,35 @@ body {
   color: white;
 }
 
-/* Mobile Styles */
+/* ===== Mobile layout: profile → content → pages → updates ===== */
 @media (max-width: 768px) {
-  .main {
+  .main-body {
+    display: flex;
     flex-direction: column;
+    gap: 12px;
+    padding: 10px;
   }
+
+  /* Let children of .left-column participate as direct flex items */
+  .left-column { 
+    display: contents;
+  }
+
+  /* Order them */
+  .profile-card { order: 1; }
+  .content      { order: 2; }
+  .pages-box    { order: 3; }
+  .updates-box  { order: 4; }
+
+  /* Sizing on mobile */
+  .profile-card,
+  .pages-box,
+  .updates-box {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .content { width: 100%; }
+  .content iframe { height: 500px; }
 }
