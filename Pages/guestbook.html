@@ -1,36 +1,158 @@
-<script>
-async function loadMessages() {
-  const container = document.getElementById("messages");
-  container.innerHTML = "<p>Loading messages...</p>";
-
-  try {
-    const res = await fetch("/.netlify/functions/get-guestbook");
-    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-
-    const messages = await res.json();
-
-    if (messages.length === 0) {
-      container.innerHTML = "<p>No messages yet. Be the first to sign! 🎉</p>";
-      return;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guestbook - JerinJoseph</title>
+  <link rel="stylesheet" href="../pages-css/guestbook.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1e1e1e;
+      color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
     }
 
-    container.innerHTML = "";
-    messages.forEach(msg => {
-      const div = document.createElement("div");
-      div.className = "message";
-      div.innerHTML = `
-        <p><strong>${msg.data.name}</strong> says:</p>
-        <p>${msg.data.message}</p>
-        <hr>
-      `;
-      container.appendChild(div);
-    });
+    .guestbook-container {
+      background: #2b2b2b;
+      padding: 30px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
 
-  } catch (err) {
-    container.innerHTML = `<p>Failed to load messages: ${err.message}</p>`;
-  }
-}
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
 
-// Load messages when the page loads
-loadMessages();
-</script>
+    .subtitle {
+      text-align: center;
+      color: #bbb;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 30px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #4CAF50;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    #messages {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .message {
+      background: #3b3b3b;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+    }
+
+    .message p {
+      margin: 5px 0;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #555;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      .guestbook-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="guestbook-container">
+    <h1>📖 Guestbook</h1>
+    <p class="subtitle">Leave your thoughts, wishes, or just say hello!</p>
+
+    <!-- Netlify Guestbook Form -->
+    <form name="guestbook" method="POST" data-netlify="true" action="/thank-you.html">
+      <input type="hidden" name="form-name" value="guestbook">
+      <input type="text" name="name" placeholder="👤 Your Name" required>
+      <textarea name="message" placeholder="💬 Your Message" required></textarea>
+      <button type="submit">Sign Guestbook</button>
+    </form>
+
+    <h2>💬 Guestbook Messages</h2>
+    <div id="messages"><p>Loading messages...</p></div>
+  </div>
+
+  <script>
+    const container = document.getElementById("messages");
+
+    async function loadMessages() {
+      try {
+        const res = await fetch("/.netlify/functions/get-guestbook");
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+
+        const messages = await res.json();
+        container.innerHTML = "";
+
+        if (messages.length === 0) {
+          container.innerHTML = "<p>No messages yet. Be the first to sign! 🎉</p>";
+          return;
+        }
+
+        messages.forEach(msg => {
+          const div = document.createElement("div");
+          div.className = "message";
+          div.innerHTML = `
+            <p><strong>${msg.data.name}</strong> says:</p>
+            <p>${msg.data.message}</p>
+            <hr>
+          `;
+          container.appendChild(div);
+        });
+
+      } catch (err) {
+        container.innerHTML = `<p>Failed to load messages: ${err.message}</p>`;
+      }
+    }
+
+    // Initial load
+    loadMessages();
+
+    // Poll for new messages every 10 seconds
+    setInterval(loadMessages, 10000);
+  </script>
+
+</body>
+</html>
