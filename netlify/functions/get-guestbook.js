@@ -1,38 +1,48 @@
-exports.handler = async (event, context) => {
-  const fetch = require("node-fetch");
+const fetch = require("node-fetch");
 
-  // Your Netlify site ID + API token (add in Netlify dashboard → Site Settings → Build & Deploy → Environment)
-  const SITE_ID = process.env.MY_SITE_ID;
+exports.handler = async () => {
+  const MY_SITE_ID = process.env.MY_SITE_ID;
   const TOKEN = process.env.NETLIFY_API_TOKEN;
 
-  const response = await fetch(`https://api.netlify.com/api/v1/sites/${MY_SITE_ID}/forms`, {
-    headers: {
-      Authorization: `Bearer ${TOKEN}`
-    }
-  });
-
-  const forms = await response.json();
-  const guestbook = forms.find(f => f.name === "guestbook");
-
-  if (!guestbook) {
+  if (!MY_SITE_ID || !TOKEN) {
     return {
-      statusCode: 404,
-      body: JSON.stringify({ error: "Guestbook not found" })
+      statusCode: 500,
+      body: JSON.stringify({ error: "Environment variables not set" }),
     };
   }
 
-  // Get submissions
-  const submissionsResponse = await fetch(
-    `https://api.netlify.com/api/v1/forms/${guestbook.id}/submissions`,
-    {
-      headers: { Authorization: `Bearer ${TOKEN}` }
+  try {
+    // Get all forms
+    const res = await fetch(`https://api.netlify.com/api/v1/sites/${MY_SITE_ID}/forms`, {
+      headers: { Authorization: `Bearer ${TOKEN}` },
+    });
+
+    const forms = await res.json();
+    const guestbook = forms.find(f => f.name === "guestbook");
+
+    if (!guestbook) {
+      return {
+        statusCode: 404,
+        body: JSON.stringify({ error: "Guestbook form not found" }),
+      };
     }
-  );
 
-  const submissions = await submissionsResponse.json();
+    // Get submissions
+    const submissionsRes = await fetch(
+      `https://api.netlify.com/api/v1/forms/${guestbook.id}/submissions`,
+      { headers: { Authorization: `Bearer ${TOKEN}` } }
+    );
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify(submissions)
-  };
+    const submissions = await submissionsRes.json();
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(submissions),
+    };
+  } catch (err) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: err.message }),
+    };
+  }
 };

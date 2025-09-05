@@ -1,36 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Guestbook - JerinJoseph</title>
-  <link rel="stylesheet" href="../pages-css/guestbook.css">
-</head>
-<body>
-
-  <div class="guestbook-container">
-    <h1>📖 Guestbook</h1>
-    <p class="subtitle">Leave your thoughts, wishes, or just say hello!</p>
-
-    <!-- Netlify Guestbook Form -->
-    <form name="guestbook" method="POST" data-netlify="true" action="/thank-you.html" class="guestbook-form">
-      <!-- Hidden input required by Netlify -->
-      <input type="hidden" name="form-name" value="guestbook">
-
-      <input type="text" name="name" placeholder="👤 Your Name" required>
-      <textarea name="message" placeholder="💬 Your Message" required></textarea>
-      <button type="submit">Sign Guestbook</button>
-    </form>
-    <h2>💬 Guestbook Messages</h2>
-<div id="messages"></div>
-
 <script>
-  async function loadMessages() {
+async function loadMessages() {
+  const container = document.getElementById("messages");
+  container.innerHTML = "<p>Loading messages...</p>";
+
+  try {
     const res = await fetch("/.netlify/functions/get-guestbook");
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+
     const messages = await res.json();
 
-    const container = document.getElementById("messages");
-    container.innerHTML = "";
+    if (messages.length === 0) {
+      container.innerHTML = "<p>No messages yet. Be the first to sign! 🎉</p>";
+      return;
+    }
 
+    container.innerHTML = "";
     messages.forEach(msg => {
       const div = document.createElement("div");
       div.className = "message";
@@ -41,13 +25,12 @@
       `;
       container.appendChild(div);
     });
+
+  } catch (err) {
+    container.innerHTML = `<p>Failed to load messages: ${err.message}</p>`;
   }
+}
 
-  loadMessages();
+// Load messages when the page loads
+loadMessages();
 </script>
-
-  </div>
-
-
-</body>
-</html>
