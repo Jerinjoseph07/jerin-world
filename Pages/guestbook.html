@@ -3,141 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Guestbook - JerinJoseph</title>
-  <style>
-    /* Base Styles */
-    body {
-      font-family: Arial, sans-serif;
-      background: #1e1e1e;
-      color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-      margin: 0;
-    }
-
-    .guestbook-container {
-      background: #2b2b2b;
-      padding: 30px;
-      border-radius: 10px;
-      width: 100%;
-      max-width: 600px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
-      box-sizing: border-box;
-    }
-
-    h1, h2 {
-      text-align: center;
-      margin: 10px 0;
-    }
-
-    .subtitle {
-      text-align: center;
-      color: #bbb;
-      margin-bottom: 20px;
-      font-size: 0.95rem;
-    }
-
-    /* Form Styles */
-    form {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 30px;
-    }
-
-    input, textarea {
-      padding: 12px;
-      margin-bottom: 12px;
-      border-radius: 5px;
-      border: none;
-      font-size: 1rem;
-      resize: vertical;
-    }
-
-    textarea {
-      min-height: 80px;
-    }
-
-    button {
-      padding: 12px;
-      border: none;
-      border-radius: 5px;
-      background: #4CAF50;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    button:hover {
-      background: #45a049;
-    }
-
-    /* Messages */
-    #messages {
-      max-height: 400px;
-      overflow-y: auto;
-    }
-
-    .message {
-      background: #3b3b3b;
-      padding: 12px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      word-wrap: break-word;
-    }
-
-    .message p {
-      margin: 5px 0;
-    }
-
-    .message .time {
-      font-size: 0.8rem;
-      color: #ccc;
-    }
-
-    hr {
-      border: 0;
-      border-top: 1px solid #555;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 600px) {
-      .guestbook-container {
-        padding: 20px;
-      }
-
-      input, textarea, button {
-        font-size: 0.95rem;
-        padding: 10px;
-      }
-
-      .subtitle {
-        font-size: 0.9rem;
-      }
-
-      #messages {
-        max-height: 300px;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .guestbook-container {
-        padding: 15px;
-      }
-
-      h1 {
-        font-size: 1.3rem;
-      }
-
-      h2 {
-        font-size: 1.1rem;
-      }
-
-      input, textarea, button {
-        font-size: 0.9rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../pages-css/guestbook.css">
 </head>
 <body>
 
@@ -157,45 +23,45 @@
   </div>
 
   <script>
-const container = document.getElementById("messages");
+    const container = document.getElementById("messages");
 
-async function loadMessages() {
-  try {
-    const res = await fetch("/.netlify/functions/get-guestbook");
-    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+    async function loadMessages() {
+      try {
+        const res = await fetch("/.netlify/functions/get-guestbook");
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
-    const messages = await res.json();
-    container.innerHTML = "";
+        const messages = await res.json();
+        container.innerHTML = "";
 
-    if (messages.length === 0) {
-      container.innerHTML = "<p>No messages yet. Be the first to sign! 🎉</p>";
-      return;
+        if (messages.length === 0) {
+          container.innerHTML = "<p>No messages yet. Be the first to sign! 🎉</p>";
+          return;
+        }
+
+        // Latest messages on top
+        messages.reverse().forEach(msg => {
+          const date = new Date(msg.created_at);
+          const formattedDate = date.toLocaleString();
+
+          const div = document.createElement("div");
+          div.className = "message";
+          div.innerHTML = `
+            <p><strong>${msg.data.name}</strong> says:</p>
+            <p>${msg.data.message}</p>
+            <p class="time">${formattedDate}</p>
+            <hr>
+          `;
+          container.appendChild(div);
+        });
+
+      } catch (err) {
+        container.innerHTML = `<p>Failed to load messages: ${err.message}</p>`;
+      }
     }
 
-    // Show latest messages on top
-    messages.reverse().forEach(msg => {
-      const date = new Date(msg.created_at);
-      const formattedDate = date.toLocaleString();
-
-      const div = document.createElement("div");
-      div.className = "message";
-      div.innerHTML = `
-        <p><strong>${msg.data.name}</strong> says:</p>
-        <p>${msg.data.message}</p>
-        <p class="time">${formattedDate}</p>
-        <hr>
-      `;
-      container.appendChild(div);
-    });
-
-  } catch (err) {
-    container.innerHTML = `<p>Failed to load messages: ${err.message}</p>`;
-  }
-}
-
-// Load messages once on page load
-loadMessages();
-</script>
+    // Load messages once
+    loadMessages();
+  </script>
 
 </body>
 </html>
