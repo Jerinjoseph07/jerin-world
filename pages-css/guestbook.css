@@ -77,3 +77,16 @@ h1 {
   color: #00ff99;
   font-weight: bold;
 }
+#messages {
+  margin-top: 20px;
+  text-align: left;
+  color: #ffcc00;
+}
+
+.message {
+  padding: 10px;
+  border: 1px solid #00ffcc;
+  margin-bottom: 10px;
+  background: #111;
+  border-radius: 4px;
+}
