@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Guestbook - JerinJoseph</title>
-  <link rel="stylesheet" href="../pages-css/guestbook.css">
+  <link rel="stylesheet" href="guestbook.css">
 </head>
 <body>
 
@@ -12,19 +12,14 @@
     <p class="subtitle">Leave your thoughts, wishes, or just say hello!</p>
 
     <!-- Netlify Guestbook Form -->
-   <form name="guestbook" method="POST" data-netlify="true" class="guestbook-form">
-  <!-- hidden input required -->
-  <input type="hidden" name="form-name" value="guestbook">
-  
-  <input type="text" name="name" placeholder="👤 Your Name" required>
-  <textarea name="message" placeholder="💬 Your Message" required></textarea>
-  <button type="submit">Sign Guestbook</button>
-</form>
+    <form name="guestbook" method="POST" data-netlify="true" action="/thank-you.html" class="guestbook-form">
+      <!-- Hidden input required by Netlify -->
+      <input type="hidden" name="form-name" value="guestbook">
 
-
-    <div class="thanks-message" hidden>
-      ✅ Thank you! Your entry has been recorded.
-    </div>
+      <input type="text" name="name" placeholder="👤 Your Name" required>
+      <textarea name="message" placeholder="💬 Your Message" required></textarea>
+      <button type="submit">Sign Guestbook</button>
+    </form>
   </div>
 
 </body>
