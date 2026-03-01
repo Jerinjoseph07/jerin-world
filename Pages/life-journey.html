@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life Journey - Jerin Joseph</title>
+
+<style>
+body{
+  margin:0;
+  padding:60px 20px;
+  font-family:"Inter","Segoe UI",sans-serif;
+  background:#0f172a;
+  color:#e2e8f0;
+  animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* Back Button */
+.back-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  padding:10px 18px;
+  border-radius:10px;
+  background:linear-gradient(90deg,#3b82f6,#2563eb);
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  transition:0.3s;
+  z-index:1000;
+}
+
+.back-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 20px rgba(59,130,246,0.4);
+}
+
+h1{
+  text-align:center;
+  margin-bottom:50px;
+  background:linear-gradient(90deg,#3b82f6,#60a5fa);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* Timeline */
+.timeline{
+  max-width:800px;
+  margin:auto;
+  position:relative;
+  padding-left:30px;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:10px;
+  top:0;
+  width:4px;
+  height:100%;
+  background:linear-gradient(#3b82f6,#60a5fa);
+}
+
+.timeline-item{
+  margin-bottom:40px;
+  position:relative;
+}
+
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  left:-22px;
+  top:5px;
+  width:16px;
+  height:16px;
+  background:#3b82f6;
+  border-radius:50%;
+  box-shadow:0 0 10px rgba(59,130,246,0.6);
+}
+
+.card{
+  background:#1e293b;
+  padding:20px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+.card h3{
+  margin-top:0;
+  color:#60a5fa;
+}
+
+.card p{
+  margin:5px 0 0;
+  color:#cbd5e1;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .timeline{
+    padding-left:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<a href="../index.html" class="back-btn">⬅ Back</a>
+
+<h1>My Life Journey</h1>
+
+<div class="timeline">
+
+  <div class="timeline-item">
+    <div class="card">
+      <h3>2002</h3>
+      <p>Born in Kerala, kodakara</p>
+    </div>
+  </div>
+
+    <div class="timeline-item">
+    <div class="card">
+      <h3>////</h3>
+      <p>St.Antony's C.U.P.S. Elinjipra</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="card">
+      <h3>2018 – 2019</h3>
+      <p>Completed SSLC (Secondary School Leaving Certificate)</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="card">
+      <h3>2019 – 2021</h3>
+      <p>Completed Higher Secondary Education</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="card">
+      <h3>2021 – 2024</h3>
+      <p>Graduated with B.Sc. Computer Science 🎓</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="card">
+      <h3>2026 – Present</h3>
+      <p>Building career as Web Developer & Network Engineer 💻🌐</p>
+    </div>
+  </div>
+
+</div>
+  </div>
+
+</div>
+
+</body>
+</html>
