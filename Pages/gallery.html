@@ -1,78 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery</title>
-  <link rel="stylesheet" href="../index.css">
-  <style>
-    body {
-       background: url("https://www.transparenttextures.com/patterns/stardust.png") repeat black;
-      color:coral ;
-      font-family: "Press Start 2P", monospace;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery - Jerin Joseph</title>
 
-    /* Back Button (fixed top) */
-    .back-btn {
-      position: fixed;
-      top: 15px;
-      left: 15px;
-      padding: 10px 15px;
-      border: 2px solid #00ff99;
-      border-radius: 6px;
-      background: black;
-      color: #00ff99;
-      font-size: 12px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s;
-      text-shadow: 0 0 5px #00ff99;
-      z-index: 1000;
-    }
+<style>
+body{
+  margin:0;
+  padding:40px 20px;
+  font-family:"Inter","Segoe UI",sans-serif;
+  background:#0f172a; /* Premium dark background */
+  color:#e2e8f0;
+}
 
-    .back-btn:hover {
-      background: #00ff99;
-      color: black;
-      text-shadow: none;
-    }
+/* ===== Header ===== */
+h2{
+  text-align:center;
+  margin-bottom:40px;
+  font-size:28px;
+  background:linear-gradient(90deg,#3b82f6,#60a5fa);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 
-    h2 {
-      text-align: center;
-      padding-top: 60px; /* space below fixed button */
-    }
+/* ===== Back Button ===== */
+.back-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  padding:10px 18px;
+  border-radius:10px;
+  background:linear-gradient(90deg,#3b82f6,#2563eb);
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  transition:0.3s ease;
+  z-index:1000;
+}
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 10px;
-      padding: 20px;
-    }
+.back-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 20px rgba(59,130,246,0.4);
+}
 
-    .gallery img {
-      width: 100%;
-      border: 2px solid cyan;
-      border-radius: 8px;
-      box-shadow: 0 0 10px cyan;
-      object-fit: cover;
-    }
-  </style>
+/* ===== Gallery Grid ===== */
+.gallery{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+/* ===== Image Card ===== */
+.gallery img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:14px;
+  transition:all 0.4s ease;
+  box-shadow:0 8px 25px rgba(0,0,0,0.4);
+  cursor:pointer;
+}
+
+/* Hover Effect */
+.gallery img:hover{
+  transform:scale(1.05);
+  box-shadow:0 15px 40px rgba(59,130,246,0.4);
+}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  body{
+    padding:30px 15px;
+  }
+  .gallery img{
+    height:180px;
+  }
+}
+</style>
 </head>
-<body>
-  <!-- Back Button -->
-  <a href="../index.html" class="back-btn">⬅ Back</a>
 
-  <h2>📸 MY GALLERY </h2>
-  <div class="gallery">
-    <img src="../images/gallery/jerin1.jpg" alt="Image 1">
-    <img src="../images/gallery/jerin2.jpg" alt="Image 2">
-    <img src="../images/gallery/jerin3.jpg" alt="Image 3">
-    <img src="../images/gallery/jerin4.jpg" alt="Image 4">
-    <img src="../images/gallery/jerin5.jpg" alt="Image 4">
-    <img src="../images/gallery/jerin6.jpg" alt="Image 4">
-    <img src="../images/gallery/jerin7.jpg" alt="Image 4">
-    <img src="../images/gallery/jerin9.jpg" alt="Image 4">
-  </div>
+<body>
+
+<a href="../index.html" class="back-btn">⬅ Back</a>
+
+<h2>My Gallery</h2>
+
+<div class="gallery">
+  <img src="../images/gallery/jerin1.jpg" alt="Jerin Photo 1">
+  <img src="../images/gallery/jerin2.jpg" alt="Jerin Photo 2">
+  <img src="../images/gallery/jerin3.jpg" alt="Jerin Photo 3">
+  <img src="../images/gallery/jerin4.jpg" alt="Jerin Photo 4">
+  <img src="../images/gallery/jerin5.jpg" alt="Jerin Photo 5">
+  <img src="../images/gallery/jerin6.jpg" alt="Jerin Photo 6">
+  <img src="../images/gallery/jerin7.jpg" alt="Jerin Photo 7">
+  <img src="../images/gallery/jerin9.jpg" alt="Jerin Photo 8">
+</div>
+
 </body>
 </html>

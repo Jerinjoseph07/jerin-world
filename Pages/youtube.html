@@ -1,130 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My YouTube Channel - JerinJoseph</title>
-  <style>
-    body {
-    background: url("https://www.transparenttextures.com/patterns/stardust.png") repeat black;
-      color: #00ffcc;
-      font-family: "Courier New", monospace;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube - Jerin Joseph</title>
 
-    h1 {
-      color: #ffcc00;
-      text-shadow: 0 0 8px #ff9900;
-      margin-bottom: 20px;
-    }
+<style>
+body{
+  margin:0;
+  padding:50px 20px;
+  font-family:"Inter","Segoe UI",sans-serif;
+  background:#0f172a;
+  color:#e2e8f0;
+  text-align:center;
+  animation:fadeIn 1s ease;
+}
 
-    .channel-banner {
-      width: 100%;
-      max-width: 600px;
-      height: 180px;
-      background: url("../images/youtube-banner.jpg") no-repeat center;
-      background-size: cover;
-      margin: 0 auto 20px;
-      border: 2px solid #ff0000;
-      box-shadow: 0 0 15px #ff0000;
-      border-radius: 6px;
-    }
+/* Fade animation */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
 
-    .description {
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 15px;
-      border: 2px solid #00ffff;
-      border-radius: 6px;
-      background: #111;
-      text-align: left;
-      box-shadow: 0 0 12px #00ffff;
-    }
+h1{
+  font-size:30px;
+  margin-bottom:30px;
+  background:linear-gradient(90deg,#3b82f6,#60a5fa);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 
-    .description h2 {
-      color: #ffcc00;
-      margin-top: 0;
-      text-align: center;
-    }
+/* ===== Back Button ===== */
+.back-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  padding:10px 18px;
+  border-radius:10px;
+  background:linear-gradient(90deg,#3b82f6,#2563eb);
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  transition:0.3s ease;
+  z-index:1000;
+}
 
-    iframe {
-      width: 100%;
-      max-width: 560px;
-      height: 315px;
-      border: none;
-      margin: 15px auto;
-      display: block;
-      box-shadow: 0 0 15px #00ffff;
-    }
+.back-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 20px rgba(59,130,246,0.4);
+}
 
-    .subscribe-btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      border: 2px solid #ff0000;
-      color: white;
-      background: #ff0000;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 4px;
-      transition: 0.3s;
-    }
+/* Channel Card */
+.channel-card{
+  max-width:900px;
+  margin:0 auto 30px auto;
+  background:#1e293b;
+  padding:30px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.1);
+  box-shadow:0 15px 40px rgba(0,0,0,0.5);
+}
 
-    .subscribe-btn:hover {
-      background: black;
-      color: #ff0000;
-    }
+/* Stats */
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  margin-top:20px;
+  flex-wrap:wrap;
+}
 
-    .back-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 8px 15px;
-      border: 2px solid #ffcc00;
-      color: #ffcc00;
-      background: black;
-      text-decoration: none;
-      font-size: 14px;
-      transition: 0.3s;
-    }
+.stat-box{
+  background:#0f172a;
+  padding:15px 25px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.1);
+}
 
-    .back-btn:hover {
-      background: #ffcc00;
-      color: black;
-    }
-  </style>
+.stat-box h3{
+  margin:0;
+  font-size:22px;
+  color:#60a5fa;
+}
+
+.stat-box p{
+  margin:5px 0 0;
+  font-size:13px;
+  color:#94a3b8;
+}
+
+/* Video Grid */
+.video-grid{
+  max-width:1100px;
+  margin:40px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
+}
+
+.video-wrapper{
+  position:relative;
+  padding-bottom:56.25%;
+  height:0;
+  overflow:hidden;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  transition:0.4s ease;
+}
+
+.video-wrapper iframe{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border:none;
+}
+
+.video-wrapper:hover{
+  transform:scale(1.05);
+  box-shadow:0 15px 40px rgba(59,130,246,0.4);
+}
+
+/* Subscribe Button */
+.subscribe-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 24px;
+  border-radius:10px;
+  background:linear-gradient(90deg,#ef4444,#dc2626);
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.subscribe-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 20px rgba(239,68,68,0.5);
+}
+</style>
 </head>
+
 <body>
-  <h1>📺 My YouTube Channel</h1>
 
-  <!-- Channel Banner -->
-  <!-- <div class="channel-banner"></div> -->
+<!-- Back Button -->
+<a href="../index.html" class="back-btn">⬅ Back</a>
 
-  <!-- Channel Description -->
-  <div class="description">
-    <h2>About My Channel</h2>
-    <p>
-      Welcome to <strong>SuddenThings</strong> 🎬 — my creative space where I share 
-      entertaining, surprising, and unique content.  
-      From fun experiments ⚡ to random ideas 💡, my channel is all about keeping things 
-      exciting and unexpected.  
-    </p>
-    <p>
-      If you enjoy discovering something new and different every time, make sure to 
-      hit that subscribe button and join the SuddenThings community!
-    </p>
+<h1>SuddenThings YouTube Channel</h1>
+
+<div class="channel-card">
+  <h2>About The Channel</h2>
+  <p>
+    SuddenThings is a creative space focused on unexpected,
+    entertaining and unique content.
+  </p>
+
+  <div class="stats">
+    <div class="stat-box">
+      <h3 id="subCount">Loading...</h3>
+      <p>Subscribers</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>Growing</h3>
+      <p>Channel Status</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>Active</h3>
+      <p>Content Uploading</p>
+    </div>
   </div>
 
-  <!-- Featured YouTube Video -->
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/DVvzQ77CQsc?si=ZoKUQLEVRv_c3-cZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-  <!-- Subscribe Button -->
-  <a href="https://youtube.com/@suddenthings?si=_508sqRUMQwMDrmJ" target="_blank" class="subscribe-btn">
-    🔔 Subscribe to SuddenThings
+  <a href="https://youtube.com/@suddenthings" target="_blank" class="subscribe-btn">
+    🔔 Subscribe Now
   </a>
+</div>
 
-  <div>
-    <a href="../index.html" class="back-btn">⬅ Back to Main Page</a>
+<h2>Latest Videos</h2>
+
+<div class="video-grid">
+
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/videoseries?list=UU_CHANNEL_ID"
+      allowfullscreen>
+    </iframe>
   </div>
+
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/DVvzQ77CQsc"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+</div>
+
+<script>
+/* Fake subscriber animation */
+let fakeSubs = 1250;
+setInterval(()=>{
+  fakeSubs += Math.floor(Math.random()*2);
+  document.getElementById("subCount").innerText = fakeSubs.toLocaleString();
+},2000);
+</script>
+
 </body>
 </html>
