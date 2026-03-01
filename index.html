@@ -1,84 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NCPBH85DDE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-NCPBH85DDE');
-</script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCPBH85DDE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NCPBH85DDE');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JerinJoseph</title>
+
+  <meta name="description" content="Jerin Joseph - Web Developer and Network Engineer specializing in MERN stack, WordPress, and MikroTik networking.">
+  <meta name="author" content="Jerin Joseph">
+
+  <title>Jerin Joseph | Web Developer & Network Engineer</title>
   <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
 
   <!-- Banner -->
-  <nav class="banner">
-    <img src="./images/nav.jpeg" alt="Banner Image">
-  </nav>
-<div class="onam-message">
-  🌼🌸✨ Hello everyone ✨🌸🌼
-  <span class="flower">🌸</span>
-  <span class="flower">🌼</span>
-  <span class="flower">🌸</span>
-</div>
+  <!-- Professional Header -->
+<header class="top-header">
+  <div class="logo">Jerin Joseph</div>
+  <div class="tag">Web Developer & Network Engineer</div>
+</header>
+
   <div class="main-body">
-    <!-- Left Column (Profile + Pages + Updates) -->
+
     <div class="left-column">
 
-      <!-- Profile -->
       <div class="profile-card">
-        <img src="./images/jerin1.jpg" alt="Profile Image" class="profile-img">
+        <img src="./images/jerin1.jpg" alt="Jerin Joseph Profile Photo" class="profile-img">
         <h2>Jerin Joseph</h2>
-        <p><strong>Age:</strong> 23</p>
-        <p><strong>Status:</strong> Online</p>
+        <p><strong>Web Developer</strong></p>
+        <p><strong>Network Engineer</strong></p>
+
         <ul>
-          <li><a href="./Pages/Home.html" target="content-frame">Home</a></li>
+          <li><a href="./Pages/Home.html" target="content-frame" class="active-link">Home</a></li>
           <li><a href="./Pages/about.html" target="content-frame">Who Am I</a></li>
           <li><a href="./Pages/update.html" target="content-frame">Updates</a></li>
-          <li><a href="./Pages/sitemap.html">SiteMap</a></li>
+          <li><a href="./Pages/sitemap.html">Site Map</a></li>
         </ul>
       </div>
 
-      <!-- Pages -->
       <div class="pages-box">
-        <h2>PAGES</h2>
+        <h2>Pages</h2>
         <ul>
-          <!-- Gallery opens as full page -->
           <li><a href="./Pages/gallery.html">Gallery</a></li>
           <li><a href="./Pages/games.html">My Game List</a></li>
-           <li><a href="./Pages/youtube.html">My YouTube Channel</a></li>
-           <li><a href="./Pages/guestbook.html">Guestbook</a></li>
+          <li><a href="./Pages/youtube.html">YouTube Channel</a></li>
+          <li><a href="./Pages/guestbook.html">Guestbook</a></li>
         </ul>
       </div>
 
-      <!-- Updates -->
       <div class="updates-box">
-        <h2>UPDATES</h2>
-        <iframe src="./Pages/update.html"></iframe>
+        <h2>Latest Updates</h2>
+        <iframe src="./Pages/update.html" title="Latest Updates"></iframe>
       </div>
-    </div>
-    
 
-    <!-- Content Box (Loads pages here) -->
+    </div>
+
     <div class="content">
-      <iframe name="content-frame" src="./Pages/Home.html"></iframe>
+      <iframe 
+        name="content-frame" 
+        src="./Pages/Home.html"
+        title="Main Content Area">
+      </iframe>
     </div>
-  </div>
-  <!-- Onam Bottom Stickers -->
-<!-- <div class="onam-stickers">
-  <span>🌸</span>
-  <span>🌼</span>
-  <span>🥥</span>
-  <span>🌺</span>
-  <span>🪔</span>
-</div> -->
 
+  </div>
+
+  <!-- ✅ Script moved here -->
+  <script>
+    const links = document.querySelectorAll(".profile-card a[target='content-frame']");
+    const iframe = document.querySelector("iframe[name='content-frame']");
+
+    links.forEach(link => {
+      link.addEventListener("click", function() {
+
+        // Remove previous active
+        links.forEach(l => l.classList.remove("active-link"));
+
+        // Add active class
+        this.classList.add("active-link");
+
+        // Fade effect
+        iframe.classList.add("fade");
+        setTimeout(() => {
+          iframe.classList.remove("fade");
+        }, 400);
+      });
+    });
+  </script>
 
 </body>
 </html>

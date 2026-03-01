@@ -1,94 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Site Map - JerinJoseph</title>
-  <style>
-    body {
-      background: black;
-      color: #00ffcc;
-      font-family: "Courier New", monospace;
-      margin: 0;
-      padding: 20px;
-    }
+<meta charset="UTF-8">
+<title>Site Map - Jerin Joseph</title>
 
-    h1 {
-      text-align: center;
-      color: #ffcc00;
-      text-shadow: 0 0 8px #ff9900;
-      margin-bottom: 20px;
-    }
+<style>
+body{
+  margin:0;
+  padding:40px 20px;
+  font-family:"Inter","Segoe UI",sans-serif;
+  background:#0f172a; /* Solid dark background */
+  color:#e2e8f0;
+}
 
-    .sitemap {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #111;
-      border: 2px solid #00ffff;
-      box-shadow: 0 0 15px #00ffff;
-      padding: 20px;
-      border-radius: 6px;
-    }
+/* ===== Breadcrumb ===== */
+.breadcrumb{
+  font-size:14px;
+  margin-bottom:20px;
+  color:#94a3b8;
+}
+.breadcrumb span{
+  color:#60a5fa;
+}
 
-    ul {
-      list-style: none;
-      padding-left: 20px;
-    }
+/* ===== Card Container ===== */
+.container{
+  max-width:700px;
+  margin:auto;
+  background:#1e293b; /* Strong visible card background */
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:16px;
+  padding:25px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
 
-    li {
-      margin: 8px 0;
-      position: relative;
-    }
+/* ===== Search ===== */
+.search-box{
+  margin-bottom:20px;
+}
+.search-box input{
+  width:100%;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.15);
+  outline:none;
+  background:#0f172a;
+  color:white;
+}
 
-    li::before {
-      content: "▶";
-      color: #ffcc00;
-      margin-right: 8px;
-    }
+/* ===== Tree ===== */
+ul{
+  list-style:none;
+  padding-left:0;
+}
 
-    a {
-      text-decoration: none;
-      color: #00ffcc;
-      transition: 0.3s;
-    }
+li{
+  margin:10px 0;
+}
 
-    a:hover {
-      color: #ffcc00;
-      text-shadow: 0 0 5px #ffcc00;
-    }
+.toggle{
+  cursor:pointer;
+  font-weight:600;
+  color:#60a5fa;
+}
 
-    .back-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 8px 15px;
-      border: 2px solid #ffcc00;
-      color: #ffcc00;
-      background: black;
-      text-decoration: none;
-      font-size: 14px;
-      transition: 0.3s;
-    }
+.submenu{
+  margin-left:20px;
+  display:none;
+}
 
-    .back-btn:hover {
-      background: #ffcc00;
-      color: black;
-    }
-  </style>
+a{
+  text-decoration:none;
+  color:#cbd5e1;
+  display:block;
+  padding:6px 8px;
+  border-radius:8px;
+  transition:0.3s;
+}
+
+a:hover{
+  background:rgba(59,130,246,0.2);
+  color:white;
+  transform:translateX(4px);
+}
+
+/* ===== Stats ===== */
+.stats{
+  margin-top:25px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,0.1);
+  font-size:14px;
+  color:#94a3b8;
+}
+.stat-item{
+  margin:6px 0;
+}
+.stat-item span{
+  color:#60a5fa;
+  font-weight:600;
+}
+
+/* ===== Back Button ===== */
+.back-container{
+  text-align:center;
+  margin-top:30px;
+}
+
+.back-btn{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:10px;
+  background:linear-gradient(90deg,#3b82f6,#2563eb);
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  transition:0.3s ease;
+}
+
+.back-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 20px rgba(59,130,246,0.4);
+}
+</style>
 </head>
+
 <body>
-  <h1>🗺️ Site Map</h1>
-  <div class="sitemap">
-    <ul>
-      <li><a href="../Pages/Home.html" target="content-frame">Home</a></li>
-      <li><a href="../Pages/about.html" target="content-frame">Who Am I</a></li>
-      <li><a href="../Pages/update.html" target="content-frame">Updates</a></li>
-      <li><a href="../Pages/Gallery.html">Gallery </a></li>
-      <li><a href="../Pages/Games.html">my game listGames </a></li>
-      <li><a href="../Pages/SiteMap.html" target="content-frame">Site Map</a></li>
-    </ul>
+
+<div class="breadcrumb">
+  Home > <span>Site Map</span>
+</div>
+
+<div class="container">
+
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Search pages...">
   </div>
 
-  <div style="text-align: center;">
-    <a href="../index.html" class="back-btn">⬅ Back to Main Page</a>
+  <ul>
+    <li>
+      <div class="toggle">Main Pages ▼</div>
+      <ul class="submenu">
+        <li><a href="../Pages/Home.html" target="content-frame">Home</a></li>
+        <li><a href="../Pages/about.html" target="content-frame">Who Am I</a></li>
+        <li><a href="../Pages/update.html" target="content-frame">Updates</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <div class="toggle">Extras ▼</div>
+      <ul class="submenu">
+        <li><a href="../Pages/gallery.html">Gallery</a></li>
+        <li><a href="../Pages/games.html">My Game List</a></li>
+        <li><a href="../Pages/guestbook.html">Guestbook</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="stats">
+    <div class="stat-item">Total Pages: <span>7</span></div>
+    <div class="stat-item">Last Updated: <span>01 March 2026</span></div>
+    <div class="stat-item">Theme: <span>Premium Tech Startup</span></div>
   </div>
+
+</div>
+
+<div class="back-container">
+  <a href="../index.html" class="back-btn">⬅ Back to Main Page</a>
+</div>
+
+<script>
+document.querySelectorAll(".toggle").forEach(toggle=>{
+  toggle.addEventListener("click",()=>{
+    const submenu = toggle.nextElementSibling;
+    submenu.style.display =
+      submenu.style.display === "block" ? "none" : "block";
+  });
+});
+
+document.getElementById("search").addEventListener("keyup", function(){
+  let filter = this.value.toLowerCase();
+  document.querySelectorAll("a").forEach(link=>{
+    link.style.display =
+      link.textContent.toLowerCase().includes(filter) ? "block" : "none";
+  });
+});
+</script>
+
 </body>
 </html>

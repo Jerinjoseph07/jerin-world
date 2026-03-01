@@ -3,32 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <title>Recent Updates</title>
+
   <style>
     body {
-      background: black;
-      color: #00ffcc;
-      font-family: "Courier New", monospace;
-      font-size: 14px;
       margin: 0;
-      padding: 10px;
+      padding: 15px;
+      font-family: "Inter", "Segoe UI", sans-serif;
+      background: transparent; /* inherit glass background */
+      color: #e2e8f0;
+      font-size: 13px;
     }
-    h3 {
-      color: #ffcc00;
-      font-size: 16px;
-      margin-bottom: 5px;
+
+    .update {
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .date {
+      font-size: 13px;
+      font-weight: 600;
+      color: #60a5fa;
+      margin-bottom: 6px;
+    }
+
+    p {
+      margin: 4px 0;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    .update:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
     }
   </style>
 </head>
+
 <body>
-  <h3>05/09/2025</h3>
-  <p>📸 Added Gallery page and improved mobile layout</p>
-  <p>🎮 Added My game list</p>
-  <p>🗺️ Added Sit list</p>
 
-  <h3>02/09/2025</h3>
-  <p>🚀 Website layout updated with retro profile + content box.</p>
+  <div class="update">
+    <div class="date">05 September 2025</div>
+    <p>📸 Added Gallery page and improved mobile layout</p>
+    <p>🎮 Added My Game List section</p>
+    <p>🗺️ Added Site Map page</p>
+  </div>
 
-  <h3>01/09/2025</h3>
-  <p>✨ Added banner and glowing borders.</p>
+  <div class="update">
+    <div class="date">02 September 2025</div>
+    <p>🚀 Updated website layout with profile and content structure</p>
+  </div>
+
+  <div class="update">
+    <div class="date">01 September 2025</div>
+    <p>✨ Initial design improvements and UI enhancements</p>
+  </div>
+  <div class="update">
+  <div class="date">01 March 2026</div>
+  <p>🔥 Upgraded website to premium tech startup design</p>
+  <p>🎨 Added gradient background and glass UI effect</p>
+  <p>✨ Implemented active menu highlight with smooth iframe fade animation</p>
+</div>
+
 </body>
 </html>

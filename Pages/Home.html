@@ -2,65 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Home - JerinJoseph</title>
+  <title>Home - Jerin Joseph</title>
+
   <style>
     body {
-      background: black;
-      color: #00ffcc;
-      font-family: "Courier New", monospace;
       margin: 0;
-      padding: 20px;
+      padding: 40px;
+      font-family: "Inter", "Segoe UI", sans-serif;
+      background: transparent; /* inherits glass background */
+      color: #e2e8f0;
       text-align: center;
     }
+
     h1 {
-      color: #ffcc00;
-      font-size: 24px;
-      text-shadow: 0 0 8px #ff9900;
-      margin-bottom: 10px;
+      font-size: 30px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
+
     p {
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto 18px auto;
+      color: #cbd5e1;
     }
+
     .highlight {
-      color: #00ff99;
-      font-weight: bold;
+      color: #93c5fd;
+      font-weight: 600;
+    }
+
+    .tagline {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: 500;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+
+    .cta {
+      margin-top: 25px;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #3b82f6, #2563eb);
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px rgba(59,130,246,0.4);
     }
   </style>
 </head>
+
 <body>
-  <h1>👾 Welcome to Jerin's World 👾</h1>
+
+  <h1>Welcome to My Digital Space</h1>
 
   <p>
-    Hi, I’m <span class="highlight">Jerin Joseph</span> — a Computer Science graduate, explorer of technology,  
-    and someone who enjoys blending creativity with code.
+    Hi, I’m <span class="highlight">Jerin Joseph</span> — a Computer Science graduate,
+    <span class="highlight">Web Developer</span> and <span class="highlight">Network Engineer</span>.
   </p>
 
   <p>
-    This website is my little <span class="highlight">digital playground</span>,  
-    built in a retro game style. Think of it as my personal hub where I share  
-    who I am, what I’m learning, and the projects I’m working on.
+    I specialize in building modern web applications using the MERN stack,
+    designing professional WordPress websites, and configuring secure,
+    reliable network infrastructures.
   </p>
 
   <p>
-    On the left, you’ll find links to my <span class="highlight">profile</span>,  
-    a section with <span class="highlight">updates</span>,  
-    and my <span class="highlight">gallery</span> where I’ll post snapshots, creations, and memories.
+    This website is my personal tech hub — a place where I showcase my skills,
+    share updates, and document my journey in development and networking.
   </p>
 
-  <p>
-    I enjoy experimenting with design, gaming aesthetics, and building websites  
-    that feel fun to use. This is not just a portfolio — it’s an interactive  
-    corner of the web that reflects my personality.
-  </p>
+  <div class="tagline">
+    Building Clean. Secure. Scalable Solutions.
+  </div>
 
-  <p>
-    🚀 Expect this site to grow with new content, cool updates, and maybe even  
-    hidden surprises (like an Easter egg or two 👀).
-  </p>
+  <a href="./about.html" class="cta">Learn More About Me</a>
 
-  <p>
-    Thanks for visiting, and don’t forget: <span class="highlight"> explore!</span>
-  </p>
 </body>
 </html>

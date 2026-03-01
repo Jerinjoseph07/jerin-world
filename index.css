@@ -1,300 +1,192 @@
-/* General */
+/* ===== Global ===== */
 body {
-  background: url("https://www.transparenttextures.com/patterns/stardust.png") repeat black;
   margin: 0;
   padding: 0;
-  font-family: "Courier New", monospace;
-  color: white;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+  background-attachment: fixed;
+  color: #e2e8f0;
 }
 
-/* Banner */
-.banner {
+/* ===== Top Header ===== */
+.top-header {
   width: 100%;
-  height: 120px;
-  overflow: hidden;
-  border: 2px solid #ff9900;
-  margin-bottom: 10px;
-}
-
-.banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-/* Onam Greeting */
-.onam-message {
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: #14130e;
-  background-image: url(./images/onambanner.jpg.jpeg);
-  border: 2px solid #ff9900;
-  padding: 10px;
-  margin: 10px 20px;
-  border-radius: 6px;
-  font-family: "Courier New", monospace;
-  animation: slideIn 1.5s ease-out, glow 2s infinite alternate;
-
-}
-
-.flower {
-  position: absolute;
-  font-size: 20px;
-  opacity: 0.8;
-  animation: floatFlowers 6s infinite ease-in-out;
-}
-
-/* Random Positions */
-.flower:nth-child(2) { left: 10%; animation-delay: 0s; }
-.flower:nth-child(3) { left: 80%; animation-delay: 2s; }
-.flower:nth-child(4) { left: 50%; animation-delay: 4s; }
-
-/* Animation for floating flowers */
-@keyframes floatFlowers {
-  0%   { top: 100%; transform: rotate(0deg) scale(1); opacity: 0.8; }
-  50%  { transform: rotate(180deg) scale(1.2); opacity: 1; }
-  100% { top: -50px; transform: rotate(360deg) scale(1); opacity: 0; }
-}
-
-/* Slide-in Animation */
-@keyframes slideIn {
-  from { transform: translateY(-50px); opacity: 0; }
-  to   { transform: translateY(0); opacity: 1; }
-}
-
-/* Glowing Effect */
-@keyframes glow {
-  from {
-    box-shadow: 0 0 5px #ff9900, 0 0 10px #ffcc00;
-    color: #ffcc00;
-  }
-  to {
-    box-shadow: 0 0 20px #ffcc00, 0 0 30px #ff9900, 0 0 40px #ffcc00;
-    color: #fff799;
-  }
-}
-
-/* Slide-in Animation */
-@keyframes slideIn {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Glowing Effect */
-@keyframes glow {
-  from {
-    box-shadow: 0 0 5px #ff9900, 0 0 10px #ffcc00;
-    color: #4dbb0d;
-  }
-  to {
-    box-shadow: 0 0 20px #ffcc00, 0 0 30px #ff9900, 0 0 40px #ffcc00;
-    color: #a10c8d;
-  }
-}
-/* Bottom Stickers */
-.onam-stickers {
-  position: fixed;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  padding: 18px 50px;
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky;
+  top: 0;
   z-index: 1000;
 }
 
-.onam-stickers span {
-  font-size: 32px;
-  animation: bounce 3s infinite ease-in-out;
+.logo {
+  font-size: 22px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Delay each sticker slightly for effect */
-.onam-stickers span:nth-child(1) { animation-delay: 0s; }
-.onam-stickers span:nth-child(2) { animation-delay: 0.5s; }
-.onam-stickers span:nth-child(3) { animation-delay: 1s; }
-.onam-stickers span:nth-child(4) { animation-delay: 1.5s; }
-.onam-stickers span:nth-child(5) { animation-delay: 2s; }
-
-/* Bouncing animation */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px) rotate(10deg); }
+.tag {
+  font-size: 14px;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
 }
 
-
-
-/* Layout */
+/* ===== Layout ===== */
 .main-body {
   display: flex;
-  gap: 20px;
-  padding: 20px;
-  align-items: flex-start;
+  gap: 30px;
+  padding: 50px;
+  max-width: 1250px;
+  margin: auto;
 }
 
-/* Left column (profile, pages, updates) */
+/* ===== Left Column ===== */
 .left-column {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  flex-shrink: 0;
+  gap: 25px;
+  width: 270px;
 }
 
-/* Profile Card */
+/* ===== Card Style ===== */
+.profile-card,
+.pages-box,
+.updates-box,
+.content {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+/* Hover Glow */
+.profile-card:hover,
+.pages-box:hover,
+.updates-box:hover,
+.content:hover {
+  border: 1px solid rgba(59,130,246,0.6);
+  box-shadow: 0 0 35px rgba(59,130,246,0.15);
+}
+
+/* ===== Profile ===== */
 .profile-card {
-  width: 220px;
-  background: black;
-  color: #00ff99;
-  border: 2px solid #ff9900;
-  padding: 15px;
-  border-radius: 4px;
   text-align: center;
-  font-size: 14px;
-  box-shadow: 0 0 15px #ff9900;
 }
 
-.profile-card .profile-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  border: 2px solid #00ff99;
+.profile-img {
+  width: 135px;
+  height: 135px;
+  border-radius: 50%;
   object-fit: cover;
+  margin-bottom: 15px;
+  border: 2px solid rgba(59,130,246,0.7);
 }
 
 .profile-card h2 {
   margin: 10px 0;
-  color: #ffcc00;
-  font-size: 16px;
-  text-transform: uppercase;
+  font-size: 19px;
+  color: #ffffff;
 }
 
-/* Pages Box */
-.pages-box {
-  width: 220px;
-  background: black;
-  border: 2px solid #00ffff;
-  border-radius: 4px;
-  padding: 10px;
-  box-shadow: 0 0 15px #00ffff;
-}
-
-.pages-box h2 {
-  text-align: center;
-  color: #00ffff;
-  margin-bottom: 10px;
-  font-size: 16px;
-  text-transform: uppercase;
-}
-
+/* ===== Links ===== */
 .profile-card ul,
 .pages-box ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 18px 0 0 0;
 }
 
-.profile-card a {
-  display: block;
-  text-decoration: none;
-  color: #ffcc00;
-  background: #111;
-  border: 1px solid #ffcc00;
-  padding: 5px;
-  margin: 3px 0;
-  text-align: center;
-  transition: 0.3s;
+.profile-card li,
+.pages-box li {
+  margin-bottom: 10px;
 }
 
-.profile-card ul li a:hover {
-  background: #ffcc00;
-  color: black;
-}
-
+.profile-card a,
 .pages-box a {
-  color: #ff9900;
   text-decoration: none;
-}
-
-/* Updates Box */
-.updates-box {
-  width: 220px;
-  background: black;
-  border: 2px solid #ff9900;
-  border-radius: 4px;
-  padding: 10px;
-  box-shadow: 0 0 15px #ff9900;
-  color: #ffcc00;
+  display: block;
+  padding: 9px 12px;
+  border-radius: 10px;
+  color: #cbd5e1;
   font-size: 14px;
+  transition: all 0.3s ease;
 }
 
-.updates-box h2 {
-  text-align: center;
-  margin: 0 0 10px 0;
+/* Hover */
+.profile-card a:hover,
+.pages-box a:hover {
+  background: rgba(59,130,246,0.2);
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* Active Link */
+.active-link {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  color: white !important;
+  box-shadow: 0 0 15px rgba(59,130,246,0.5);
+}
+
+/* ===== Section Titles ===== */
+.updates-box h2,
+.pages-box h2 {
+  color: #ffffff;
+  margin-bottom: 12px;
   font-size: 16px;
-  color: #ffcc00;
-  text-transform: uppercase;
 }
 
+/* ===== Updates ===== */
 .updates-box iframe {
   width: 100%;
   height: 150px;
   border: none;
-  background: black;
-  color: white;
+  border-radius: 10px;
 }
 
-/* Content Box */
+/* ===== Content ===== */
 .content {
   flex: 1;
-  background: black;
-  border: 2px solid #00ffff;
-  border-radius: 4px;
-  box-shadow: 0 0 15px #00ffff;
-  padding: 0;
+  position: relative;
 }
 
 .content iframe {
   width: 100%;
   height: 700px;
   border: none;
-  background: black;
-  color: white;
+  border-radius: 12px;
+  opacity: 1;
+  transition: opacity 0.4s ease;
 }
 
-/* ===== Mobile layout: profile → content → pages → updates ===== */
+/* Fade Effect */
+.content iframe.fade {
+  opacity: 0;
+}
+
+/* ===== Mobile ===== */
 @media (max-width: 768px) {
   .main-body {
-    display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 10px;
+    padding: 25px;
   }
 
-  /* Let children of .left-column participate as direct flex items */
-  .left-column { 
-    display: contents;
-  }
-
-  /* Order them */
-  .profile-card { order: 1; }
-  .content      { order: 2; }
-  .pages-box    { order: 3; }
-  .updates-box  { order: 4; }
-
-  /* Sizing on mobile */
-  .profile-card,
-  .pages-box,
-  .updates-box {
+  .left-column {
     width: 100%;
-    max-width:360px;
-    margin: 0 auto;
   }
 
-  .content { width: 100%; }
-  .content iframe { height: 500px; }
+  .content iframe {
+    height: 500px;
+  }
+
+  .top-header {
+    padding: 15px 20px;
+  }
 }
